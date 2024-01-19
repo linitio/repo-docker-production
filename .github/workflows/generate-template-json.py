@@ -6,7 +6,7 @@ import json
 import datetime
 from textwrap import indent
 
-GITHUB_REPOSITORY_URL = 'https://github.com/PAPAMICA/docker-compose-collection'
+GITHUB_REPOSITORY_URL = 'https://github.com/linitio/repo-docker-production'
 SERVICES="|:--:|--|--|--|--|"
 SERVICES_TODO="|:--:|--|"
 try:
