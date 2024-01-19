@@ -1,0 +1,73 @@
+# Maintainer: Kevin Allioli @linitio
+# Update: 2024-01-19
+
+#& type: 3
+#& title: Nginx Proxy Manager
+#& description: Enables you to easily forward to your websites running at home or otherwise.
+#& note: Website: <a href='https://nginxproxymanager.com/' target='_blank' rel='noopener'>nginxproxymanager.com</a>
+#& categories: SelfHosted, Proxy, LinIT
+#& platform: linux
+#& logo: https://img.papamica.com/logo/checkmk.png
+
+#% SERVICE: Name of the service (No spaces or points) [nginx-proxy-manager]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]
+#% URL: Service URL (Example: service.papamica.fr or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+
+version: '3.8'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '81:81'
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+    healthcheck:
+      test: ["CMD", "/bin/check-health"]
+      interval: 10s
+      timeout: 3s
+
+    volumes:
+      - app_data:/data
+      - letsencrypt:/etc/letsencrypt
+    depends_on:
+      - db
+    networks:
+      - proxy
+      - network
+
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    healthcheck:
+      test: mariadb-admin ping -h localhost -u root --password=npm
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - network
+
+volumes:
+  app_data:
+  letsencrypt:
+  db_data:
+
+networks:
+  proxy:
+    external: true
+  network:
+    driver: bridge
