@@ -5,9 +5,9 @@
 #& title: Nginx Proxy Manager
 #& description: Enables you to easily forward to your websites running at home or otherwise.
 #& note: Website: <a href='https://nginxproxymanager.com/' target='_blank' rel='noopener'>nginxproxymanager.com</a>
-#& categories: SelfHosted, Proxy, LinIT
+#& categories: proxy 
 #& platform: linux
-#& logo: https://img.papamica.com/logo/checkmk.png
+#& logo: https://cdn.linit.io/logo/npm_logo.png
 
 #% SERVICE: Name of the service (No spaces or points) [nginx-proxy-manager]
 #% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]

@@ -43,14 +43,6 @@ app_url             = input("App's official github repo : ")
 app_description     = input("App's description : ")
 maintainer_name     = input("Maintainer's name : ")
 maintainer_github   = input("Maintainer's github profile : ")
-#app_name            = "Ampache"
-#app_logo            = "https://ampache.org/img/logo/ampache-logo.png"
-#app_image           = "ampache/ampache:latest"
-#app_port            = "80"
-#app_url             = "https://github.com/ampache/ampache-docker"
-#app_description     = "web based audio/video streaming application and file manager allowing you to access your music & videos from anywhere, using almost any internet enabled device."
-#maintainer_name     = "Quentin JOLY"
-#maintainer_github   = "@QJoly"
 envvar              = envvar()
 volumlist           = volumlist()
 

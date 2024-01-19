@@ -5,13 +5,13 @@
 #& title: {{ app_name }}
 #& description: {{ app_description }}
 #& note: Website: <a href='{{ app_url }}' target='_blank' rel='noopener'>Github.com</a>
-#& categories: SelfHosted, PAPAMICA
+#& categories: SelfHosted
 #& platform: linux
 #& logo: {{ app_logo }}
 
 #% SERVICE: Name of the service (No spaces or points) [{{ app_name|lower }}]
 #% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]
-#% URL: Service URL (Example: service.papamica.fr or service.com)
+#% URL: Service URL (Example: service.domain.tld)
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 {%- if envvar is defined and envvar|length > 0 %}
   {%- for var in envvar %}
