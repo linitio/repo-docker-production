@@ -5,7 +5,7 @@
 #& title: Nginx Proxy Manager
 #& description: Enables you to easily forward to your websites running at home or otherwise.
 #& note: Website: <a href='https://nginxproxymanager.com/' target='_blank' rel='noopener'>nginxproxymanager.com</a>
-#& categories: proxy 
+#& categories: proxy
 #& platform: linux
 #& logo: https://cdn.linit.io/logo/npm_logo.png
 
