@@ -14,7 +14,7 @@
             "logo": "https://cdn.linit.io/logo/npm_logo.png",
             "repository": {
                 "stackfile": "composes-files/nginx-proxy-manager.yml",
-                "url": "https://github.com/PAPAMICA/docker-compose-collection"
+                "url": "https://github.com/linitio/repo-docker-production"
             },
             "env": [
                 {
